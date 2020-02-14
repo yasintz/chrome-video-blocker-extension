@@ -1,0 +1,5 @@
+### Project specifics ###
+chrome/dist/
+node_modules/
+**/__snapshots__/**
+coverage/**

@@ -1,0 +1,5 @@
+**/*.snap
+chrome/**/*
+node_modules/*
+coverage/**
+

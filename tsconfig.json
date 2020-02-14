@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "es6",
+    "lib": ["dom", "es6"],
+    "jsx": "react",
+    "removeComments": true,
+    "noEmit": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+
+    "strict": true,
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./src/ts/components/styles/styled.d.ts"],
+    "types": ["react", "jest"],
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["node_modules"]
+}
