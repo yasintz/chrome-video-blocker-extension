@@ -4,7 +4,6 @@ function useInterval(callback: () => void, delay: number) {
   const intervalRef = React.useRef<number>();
 
   React.useEffect(() => {
-    callback();
     intervalRef.current = setInterval(callback, delay);
 
     return () => {

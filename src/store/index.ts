@@ -21,7 +21,10 @@ export function loadStore(): AppStore {
     theme: 'dark',
   };
 
-  return JSON.parse(localStorage.getItem(STORE_LOCAL_STORAGE_KEY) || JSON.stringify(initialStore));
+  return {
+    ...initialStore,
+    ...JSON.parse(localStorage.getItem(STORE_LOCAL_STORAGE_KEY) || JSON.stringify(initialStore)),
+  };
 }
 
 export function saveStore(state: AppStore) {

@@ -1,66 +1,50 @@
-import $ from 'jquery';
-import { getParams } from '~/utils/params';
-import { Blocked } from '~/store';
-import { UrlChangeMessage } from '~/utils/on-url-change';
-import isYoutubeTab from '~/utils/is-youtube-tab';
+// import $ from 'jquery';
+// import { UrlChangeMessage } from '~/utils/on-url-change';
+// import isYoutubeTab from '~/utils/is-youtube-tab';
+// import { getParams } from '~/utils/params';
 
-const blockeds = getParams<Blocked[]>('block-home-page');
+// let links = getParams<string[]>('block-home-page');
 
-class BlockVideo {
-  private _blocked: Blocked;
+// function hasEqual(href: string) {
+//   return links.indexOf(`https://www.youtube.com${href}`) > -1;
+// }
 
-  constructor(blocked: Blocked) {
-    this._blocked = blocked;
-  }
+// function blockAll() {
+//   const video = $('ytd-rich-item-renderer');
+//   video.each((index, element) => {
+//     const wrap = $(element);
+//     const aTag = wrap.find('a.yt-simple-endpoint.style-scope.yt-formatted-string');
+//     const hrefAttr = aTag.attr('href');
+//     if (hrefAttr && hasEqual(hrefAttr)) {
+//       wrap.remove();
+//     }
+//   });
+// }
+// function handleScroll() {
+//   // TODO: optimeze this
+//   blockAll();
+// }
+// function main() {
+//   $(document).ready(() => {
+//     blockAll();
+//     $(window).off('scroll', handleScroll);
+//     $(window).scroll(handleScroll);
+//   });
+// }
 
-  public block() {
-    switch (this._blocked.type) {
-      case 'channel-link':
-        this._blockByChannelLink(this._blocked.key);
-        break;
-      case 'keyword-in-channel-name':
-        this._blockByChannelName(this._blocked.key);
-        break;
-      case 'keyword-in-video-description':
-        this._blockByVideoDescription(this._blocked.key);
-        break;
-      default:
-        break;
-    }
-  }
+// main();
+// UrlChangeMessage.getInstance().addListener(async ({ tab }) => {
+//   if (tab.url) {
+//     const isYoutube = await isYoutubeTab(tab.url);
+//     if (isYoutube) {
+//       main();
+//     }
+//   }
+// });
 
-  private _blockByChannelLink(link: string) {
-    console.log('hell');
-    return null;
-    console.clear();
-  }
-
-  private _blockByVideoDescription(keyword: string) {}
-
-  private _blockByChannelName(keyword: string) {}
-}
-
-function blockAll() {
-  $(document).ready(() => {
-    const video = $('ytd-rich-item-renderer');
-    video.each((index, element) => {
-      const wrap = $(element);
-      const aTag = wrap.find('a.yt-simple-endpoint.style-scope.yt-formatted-string');
-      const hrefAttr = aTag.attr('href');
-      console.log({ wrap, aTag, hrefAttr });
-    });
-    // blockeds.forEach(blocked => {
-    //   new BlockVideo(blocked).block();
-    // });
-  });
-}
-
-blockAll();
-UrlChangeMessage.getInstance().addListener(async ({ tab }) => {
-  if (tab.url) {
-    const isYoutube = await isYoutubeTab(tab.url);
-    if (isYoutube) {
-      blockAll();
-    }
-  }
-});
+// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+//   if (request.key === 'update-blocks') {
+//     links = request.blocks;
+//     $(document).ready(blockAll);
+//   }
+// });

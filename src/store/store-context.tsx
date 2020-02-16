@@ -87,6 +87,6 @@ export function StoreProvider(props: React.Props<any>) {
   return <StoreContext.Provider value={value}>{props.children}</StoreContext.Provider>;
 }
 
-export function useStore() {
+export function useStore(): StoreContextValue {
   return React.useContext(StoreContext);
 }
