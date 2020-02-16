@@ -85,5 +85,5 @@ module.exports = {
     document: true,
     localStorage: true,
   },
-  env: { jest: true },
+  env: { jest: true, webextensions: true },
 };

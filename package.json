@@ -12,7 +12,7 @@
     "test": "jest",
     "test:coverage": "jest --collect-coverage",
     "tsc": "tsc",
-    "lint": "eslint src/**/*.ts* tests/**/*.test.ts* jest.config.js webpack.config.js --cache",
+    "lint": "eslint src/**/*.ts* tests/**/*.test.ts* jest.config.js webpack.config.js utils/*.js --cache",
     "prettier": "prettier  --ignore-path ./.prettierignore  **/*.ts* **/*.js*",
     "fix": "yarn prettier --write && yarn lint --fix",
     "check-rule": "yarn tsc && yarn lint && yarn prettier && yarn test"
@@ -21,11 +21,13 @@
   "devDependencies": {
     "@types/chrome": "^0.0.95",
     "@types/jest": "^25.1.2",
+    "@types/jquery": "^3.3.32",
     "@types/node": "^13.7.1",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^4.4.3",
+    "@types/url-parse": "^1.4.3",
     "@types/webpack": "^4.41.6",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
@@ -56,8 +58,11 @@
     "webpack-extension-reloader": "^1.1.4"
   },
   "dependencies": {
+    "html2json": "^1.0.2",
+    "jquery": "^3.4.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "url-parse": "^1.4.7"
   }
 }

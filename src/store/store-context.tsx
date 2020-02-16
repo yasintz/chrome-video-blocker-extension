@@ -1,6 +1,7 @@
 import React from 'react';
 import { loadStore, saveStore as saveStoreToLocalStorage, Blocked } from './index';
 import { ThemeTypes } from '../components/styles/themes';
+import useInterval from '~/hooks/use-interval';
 
 interface StoreContextValue {
   theme: ThemeTypes;
@@ -68,6 +69,8 @@ export function StoreProvider(props: React.Props<any>) {
       blockeds,
     });
   }, [blockeds, theme]);
+
+  useInterval(saveStore, 15000);
 
   const value = React.useMemo<StoreContextValue>(() => {
     return {

@@ -12,7 +12,7 @@
     "strict": true,
     "moduleResolution": "node",
     "typeRoots": ["./node_modules/@types", "./src/ts/components/styles/styled.d.ts"],
-    "types": ["react", "jest"],
+    "types": ["react", "jest", "chrome"],
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {

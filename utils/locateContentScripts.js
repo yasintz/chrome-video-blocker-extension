@@ -17,12 +17,13 @@ const findContentEntryFile = contentPath => {
   const files = readdirSync(contentPath).filter(name => /index.(js|ts|tsx)/.test(name));
   if (!files || files.length < 1) {
     console.log(`${yellow}Could not find any index files in path:${reset}\n${contentPath}\n`);
+
     return undefined;
-  } else if (files.length == 1) {
-    return files.pop();
-  } else {
-    throw `${red}Found ${files.length} index files, ${files}, in path:${reset}\n${contentPath}\nOnly one should be set.\n`;
   }
+  if (files.length == 1) {
+    return files.pop();
+  }
+  throw `${red}Found ${files.length} index files, ${files}, in path:${reset}\n${contentPath}\nOnly one should be set.\n`;
 };
 
 /**
@@ -52,6 +53,7 @@ const locateContentScripts = rootPath => {
       entries[dir.folderName] = path.join(dir.path, entryFile);
     }
   });
+
   return entries;
 };
 

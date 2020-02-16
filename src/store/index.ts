@@ -1,10 +1,10 @@
 import { ThemeTypes } from '../components/styles/themes';
 
+export type BlockedType = 'channel-link' | 'keyword-in-video-description' | 'keyword-in-channel-name';
+
 export interface Blocked {
-  byChannelId: boolean;
-  byKeywordInVideoDescription: boolean;
-  byKeywordInChannelName: boolean;
-  str: string;
+  type: BlockedType;
+  key: string;
   id: string;
 }
 
@@ -16,7 +16,12 @@ export interface AppStore {
 const STORE_LOCAL_STORAGE_KEY = 'nftxk7loxyhxki';
 
 export function loadStore(): AppStore {
-  return JSON.parse(localStorage.getItem(STORE_LOCAL_STORAGE_KEY) || '{}');
+  const initialStore: AppStore = {
+    blockeds: [],
+    theme: 'dark',
+  };
+
+  return JSON.parse(localStorage.getItem(STORE_LOCAL_STORAGE_KEY) || JSON.stringify(initialStore));
 }
 
 export function saveStore(state: AppStore) {

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import PopupApp from './popup-app';
-import { StoreProvider } from '~/store/store-context';
+import { AppProvider } from '~/app-provider';
 
 ReactDOM.render(
-  <StoreProvider>
+  <AppProvider>
     <PopupApp />
-  </StoreProvider>,
+  </AppProvider>,
   document.getElementById('popup-root'),
 );
