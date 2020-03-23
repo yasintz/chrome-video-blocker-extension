@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ThemeProvider as StyledThemeProvider, DefaultTheme } from 'styled-components';
-import { useStore } from '../../../store/store-context';
+import { useStore } from '~/app-provider';
 
 export type ThemeTypes = 'light' | 'dark';
 

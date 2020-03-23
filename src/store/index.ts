@@ -1,4 +1,6 @@
 import { ThemeTypes } from '../components/styles/themes';
+import storage from './storage';
+import { objectForeach } from '~/utils';
 
 export type BlockedType = 'channel-link' | 'keyword-in-video-description' | 'keyword-in-channel-name';
 
@@ -13,20 +15,55 @@ export interface AppStore {
   blockeds: Blocked[];
 }
 
-const STORE_LOCAL_STORAGE_KEY = 'nftxk7loxyhxki';
+const inialStore: AppStore = {
+  blockeds: [],
+  theme: 'dark',
+};
 
-export function loadStore(): AppStore {
-  const initialStore: AppStore = {
-    blockeds: [],
-    theme: 'dark',
-  };
-
-  return {
-    ...initialStore,
-    ...JSON.parse(localStorage.getItem(STORE_LOCAL_STORAGE_KEY) || JSON.stringify(initialStore)),
-  };
+export async function loadInitalStore() {
+  objectForeach(inialStore, async (key, value) => {
+    await storage.set(key, prev => (prev === undefined ? value : prev));
+  });
 }
 
-export function saveStore(state: AppStore) {
-  localStorage.setItem(STORE_LOCAL_STORAGE_KEY, JSON.stringify(state));
+export async function getTheme(): Promise<ThemeTypes> {
+  const theme = await storage.get<ThemeTypes>('theme');
+
+  return theme || 'dark';
+}
+
+export async function setTheme(theme: ThemeTypes) {
+  await storage.set('theme', theme);
+}
+
+export async function addBlocked(blocked: Blocked) {
+  const newBlockeds = await storage.set<Blocked[]>('blockeds', prev => [...prev, blocked]);
+
+  return newBlockeds;
+}
+
+export async function updateBlocked(blockedId: string, blocked: Omit<Partial<Blocked>, 'id'>) {
+  const newBlockeds = await storage.set<Blocked[]>('blockeds', prev =>
+    prev.map(b => (b.id === blockedId ? { ...b, ...blocked } : b)),
+  );
+
+  return newBlockeds;
+}
+
+export async function removeBlocked(blockedId: string) {
+  const newBlockeds = await storage.set<Blocked[]>('blockeds', prev => prev.filter(b => b.id !== blockedId));
+
+  return newBlockeds;
+}
+
+export async function getAllBlockeds() {
+  const blockeds = await storage.get<Blocked[]>('blockeds');
+
+  return blockeds;
+}
+
+export async function clearAllBlocked() {
+  await storage.set<Blocked[]>('blockeds', []);
+
+  return [];
 }

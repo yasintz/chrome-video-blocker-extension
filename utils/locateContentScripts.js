@@ -1,6 +1,6 @@
 const path = require('path');
 const { readdirSync, lstatSync } = require('fs');
-const { red, yellow, reset, bold, blink, dim } = require('./consoleColors');
+const { red, yellow, reset } = require('./consoleColors');
 
 const isDirectory = source => {
   return lstatSync(source).isDirectory();

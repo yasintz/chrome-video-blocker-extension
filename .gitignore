@@ -3,3 +3,4 @@ chrome/dist/
 node_modules/
 **/__snapshots__/**
 coverage/**
+yarn-error*

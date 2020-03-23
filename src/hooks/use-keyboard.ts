@@ -130,7 +130,8 @@ function keyboardMap(event: any): Record<AllKeyNames, boolean> {
 }
 
 export function useKeyboard(callback: Callback, deps: any[], listenerName: listenerName = 'keydown') {
-  const handler = React.useCallback((event: KeyboardEvent) => callback(keyboardMap(event), event), deps); // eslint-disable-line react-hooks/exhaustive-deps,react-hooks/rules-of-hooks
+  // eslint-disable-next-line react-hooks/exhaustive-deps,react-hooks/rules-of-hooks
+  const handler = React.useCallback((event: KeyboardEvent) => callback(keyboardMap(event), event), deps);
 
   React.useEffect(() => {
     window.addEventListener(listenerName, handler);

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import api from '~/api';
+import fetch from '~/api/clients';
+import { makeid } from '~/utils';
 
 interface PopupAppProps {}
 
@@ -20,9 +21,8 @@ const PopupApp: React.FC<PopupAppProps> = props => {
       <button
         type="button"
         onClick={async () => {
-          const loggerResponse = await api.logger({ message: 'yasin tazeoglu' });
-
-          console.log(loggerResponse);
+          await fetch('addBlocked', { blocked: { id: makeid(), type: 'channel-link', key: inputVal } });
+          setInputVal('');
         }}
       >
         Word Save

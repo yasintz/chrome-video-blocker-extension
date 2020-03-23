@@ -7,7 +7,7 @@ const { CheckerPlugin } = require('awesome-typescript-loader');
 const locateContentScripts = require('./utils/locateContentScripts');
 
 const sourceRootPath = path.join(__dirname, 'src');
-const contentScriptsPath = path.join(sourceRootPath, 'content-scripts');
+const contentScriptsPath = path.join(sourceRootPath, 'content-scripts', 'scripts');
 const distRootPath = path.join(__dirname, 'chrome', 'dist');
 const nodeEnv = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 
