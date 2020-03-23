@@ -1,7 +1,10 @@
 {
-  "name": "web-extension-starter",
+  "name": "chrome-video-blocker-extension",
   "version": "1.0.0",
-  "description": "A web browser extension starter - based on Typescript, React, Redux, Styled-Component, Webpack, and more. Runs on Chrome and Firefox.",
+  "author": {
+    "name": "Yasin Tazeoglu"
+  },
+  "description": "Block youtube video",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack",

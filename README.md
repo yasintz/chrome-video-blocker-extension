@@ -1,51 +1,43 @@
-<div align="center">
+<h1 align="center">Welcome to chrome-video-blocker-extension 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/yasintza" target="_blank">
+    <img alt="Twitter: yasintza" src="https://img.shields.io/twitter/follow/yasintza.svg?style=social" />
+  </a>
+</p>
 
-# Web Extension Starter
+> Block youtube video
 
-</div>
+## Install
 
-This project containes a minimal setup for developing a performant and well structured web extension. The extension contains a demonstration counter that is displayed on the popup and options pages as well as any open tab. 
-
-## Good to know before using:
-* [Typescript](https://www.typescriptlang.org/)
-* [React](https://reactjs.org/)
-* [redux](https://redux.js.org/)
-* [styled-components](https://www.styled-components.com/)
-
-
-
-## Requirements:
-* [NodeJS](https://nodejs.org/en/) - Javascript runtime
-* [VSCode](https://code.visualstudio.com/) - Recomended editor
-* [Chrome](https://www.google.com/chrome/) or [Firefox](https://www.mozilla.org/en-US/firefox/) - Web browser
-
-## How to run:
-### In terminal or command prompt
-
-```
-install dependencies
- - npm install
-Transpile the code
- - npm run dev (only transpiles the code)
- - npm run watch (transpiles and watches for code changes)
-
-
-yarn commands will work too if yarn is installed.
+```sh
+yarn install
 ```
 
-### In Chrome web browser
-1. Go to: [**chrome://extensions**](chrome://extensions)
-2. Toggle: "**developer mode**" on.
-3. Click on: "**Load unpacked**"
-4. Select the newly created folder "**dist**" from the project folder.
-5. Thats it.
+## Run tests
 
-### In Firefox web browser
-1. Go to: [**about:debugging**](about:debugging)
-2. Select: "**Enable add-on debugging**"
-3. Click on: "**Load Temporary Add-on…**"
-4. Open the newly created folder "**dist**" from the project folder, and choose the "**manifest.json**" file.
-5. Thats it.
+```sh
+yarn run test
+```
 
-## License
-MIT
+## Author
+
+👤 **Yasin Tazeoglu**
+
+* Twitter: [@yasintza](https://twitter.com/yasintza)
+* Github: [@yasintz](https://github.com/yasintz)
+* LinkedIn: [@yasintz](https://linkedin.com/in/yasintz)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yasintz/chrome-video-blocker-extension/issues). 
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
